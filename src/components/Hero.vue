@@ -8,11 +8,21 @@
         <p class="mx-5 mb-5">
           {{descripcion}}
         </p>
+        <template v-if="!estaAutenticado">
         <router-link to="/registro" class="link">
-          <mdb-btn title="Registrate" rounded size="lg" icon="trophy" class="radius boton"
+          <mdb-btn title="Registrate" rounded size="lg" icon="user-plush" class="radius boton"
             >¡Registrate!</mdb-btn
           >
         </router-link>
+          </template>
+        <template v-else>
+        <router-link to="/apostar" class="link">
+          <mdb-btn title="Registrate" rounded size="lg" icon="trophy" class="radius boton"
+            >¡Apostar!</mdb-btn
+          >
+        </router-link>
+
+          </template>
       </div>
     </div>
   </mdb-card>
@@ -30,6 +40,11 @@ export default {
       titulo:"Bienvenido al centro de apuestas La Quiniela",
       descripcion:"Elige ahora tu deporte favorito y apuesta con las mejores cuotas en tiempo real de forma fácil y Segura. La información más preciosa del mundo del periodismo deportivo Únete a nuestro equipo y recuerda ¡Nunca dejes de invertir en lo que te gusta!"
     }
+  },
+  computed:{
+    estaAutenticado() {
+      return this.$store.getters.estaAutenticado;
+    },
   }
 };
 </script>

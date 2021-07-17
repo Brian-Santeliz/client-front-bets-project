@@ -38,7 +38,7 @@
                     />
                 </p>
                 <p>
-                  <strong>La Quiniela</strong>
+                  <strong>La Quiniela Informativa</strong>
                 </p>
                 <mdb-btn title="Compartir en Facebook" class="btn-fb waves-light text-white">
                   <mdb-icon fab icon="facebook" class="pr-2" />
@@ -187,10 +187,10 @@ export default {
       });
     },
       iconoCategoria(categoria) {
-      if (categoria === "Futbol") {
+      if (categoria === "Fútbol") {
         return "futbol";
       } else if (categoria === "Beisbol") {
-        return "golf-ball";
+        return "baseball-ball";
       } else {
         return "basketball-ball";
       }
@@ -227,6 +227,7 @@ export default {
       } catch (error) {
         this.cargando = false;
         this.mostrarMensaje("error", error.response.data.msg);
+        this.$router.push("/noticias")
       }
     },
   },

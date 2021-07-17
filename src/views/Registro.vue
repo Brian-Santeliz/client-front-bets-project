@@ -13,7 +13,10 @@
                   </h3>
                 </div>
                 <p class="dark-grey-text text-center">
-                  Completa los dato solicitados en el formulario para crear tu cuenta en <strong>La Quiniela</strong>. Obtendras 255 Coins <mdb-icon icon="dollar-sign" /> de credito para realizar tus primeras apuestas. 
+                  Completa los dato solicitados en el formulario para crear tu
+                  cuenta en <strong>La Quiniela</strong>. Obtendras 255 Coins
+                  <mdb-icon icon="dollar-sign" /> de credito para realizar tus
+                  primeras apuestas.
                 </p>
                 <div class="md-form">
                   <mdb-input
@@ -41,12 +44,23 @@
                     v-model.trim="cliente.clave"
                     label="Contraseña"
                     iconClass="grey-text"
-                    type="password"
+                    :type="mostrarClave ? 'text' : 'password'"
+                  />
+                  <mdb-btn
+                    class="toggle"
+                    slot="append"
+                    group
+                    dark-waves
+                    color="info"
+                    size="sm"
+                    :icon="mostrarClave ? 'eye-slash' : 'eye'"
+                    :title="mostrarClave ? 'Ocultar clave' : 'Mostrar clave'"
+                    @click="mostrarClave = !mostrarClave"
                   />
                 </div>
                 <div class="text-center">
                   <mdb-btn
-                  title="Registrarse"
+                    title="Registrarse"
                     :disabled="deshabilitado"
                     :icon="deshabilitado ? 'circle-notch' : 'user-plus'"
                     :icon-class="deshabilitado ? 'fa-spin' : ''"
@@ -56,6 +70,18 @@
                     >Registrarme
                   </mdb-btn>
                 </div>
+                <mdb-col md="12">
+                  <div class="color-registro">
+                    <p class="font-small d-flex justify-content-end">
+                      ¿Estas Registrado?
+                      <a
+                        @click="$router.push('/iniciar-sesion')"
+                        class="color ml-1 font-weight-bold"
+                        >Iniciar sesión <i class="fas fa-lock"></i
+                      ></a>
+                    </p>
+                  </div>
+                </mdb-col>
               </mdb-card-body>
             </mdb-card>
           </mdb-col>
@@ -102,6 +128,7 @@ export default {
         correo: "",
         clave: "",
       },
+      mostrarClave: false,
     };
   },
   methods: {
@@ -157,6 +184,7 @@ export default {
           correo: "",
           clave: "",
         };
+        this.$router.push("/iniciar-sesion");
       } catch (error) {
         this.deshabilitado = false;
         this.mostrarMensaje("error", error.response.data.msg);
@@ -167,4 +195,23 @@ export default {
 </script>
 
 <style>
+.color-registro {
+  margin-top: 1em;
+  color: #0062d3 !important;
+}
+</style>
+<style scoped>
+.toggle {
+  right: 0em;
+  position: absolute;
+  top: 0em;
+}
+
+@media screen and (max-width: 700px) {
+  .toggle {
+    right: 0em;
+    position: absolute;
+    top: 0em;
+  }
+}
 </style>

@@ -5,7 +5,7 @@
       <div class="col-md-7 text-center">
         <h2 class="mb-3 text-white font-weight-medium">{{titulo}}</h2>
         <p class="font-weight-light text-white op-8">{{descripcion}}</p>
-        <router-link  to="/" class="btn btn-contacto btn-md border-0 text-white mt-3 text-uppercase" >
+        <router-link  to="/contacto" class="btn btn-contacto btn-md border-0 text-white mt-3 text-uppercase" >
          Contáctanos <i class="fas fa-comments"></i>
         </router-link>
       </div>

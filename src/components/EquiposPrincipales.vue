@@ -10,7 +10,7 @@
       <mdb-container class="mt-5">
         <div v-if="!equipos.length">
           <h3 class="text-center font-weight-bold">
-            No existen equipos registradas
+            No existen equipos registrados
           </h3>
         </div>
         <div v-else>

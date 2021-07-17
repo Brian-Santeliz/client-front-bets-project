@@ -26,7 +26,7 @@
                       </a>
                       <div class="tarjeta-noticia__texto text-oscuto">
                         <h1 class="tarjeta-noticia__titulo">
-                          <router-link to="/" class="link">{{ noticia.titulo }}</router-link>
+                          <a @click="$router.push(`/noticia/${noticia.id}`)" class="link">{{ noticia.titulo }}</a>
                         </h1>
                         <div class="tarjeta-noticia__subtitle small">
                           <span>
@@ -44,9 +44,9 @@
                             {{ noticia.id_categoria }}
                           </li>
                           <li class="tag__item play">
-                            <router-link to="/" class="link"
+                            <a @click="$router.push(`/noticia/${noticia.id}`)" class="link"
                               >Leer más <i class="fas fa-arrow-right mr-2"></i
-                            ></router-link>
+                            ></a>
                           </li>
                         </ul>
                       </div>

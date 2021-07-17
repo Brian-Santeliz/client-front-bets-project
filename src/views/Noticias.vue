@@ -10,7 +10,7 @@
         </h3>
       </template>
       <template v-else>
-        <h2 class="h1-responsive font-weight-bold text-center my-5">
+        <h2 class="h1-responsive font-weight-bold text-center my-5 titulo">
           Noticias publicadas en La Quiniela
         </h2>
         <p class="text-center w-responsive mx-auto mb-5 gray-text">
@@ -78,24 +78,21 @@
                 </h3>
                 <p>{{ noticia.descripcion.substring(0, 255) }}...</p>
                 <p>
-                   <mdb-icon
-                      icon="user"
-                    />
+                  <mdb-icon icon="user" />
                   Escrito por:
                   <a>
                     <strong>{{ noticia.id_autor }}</strong> </a
-                  >, {{ formatearFecha(noticia.fecha) }}  <mdb-icon
-                      icon="calendar-alt"
-                    />
+                  >, {{ formatearFecha(noticia.fecha) }}
+                  <mdb-icon icon="calendar-alt" />
                 </p>
                 <mdb-btn
-                title="Leer noticia completa"
+                  title="Leer noticia completa"
                   color="primary"
                   @click="$router.push(`/noticia/${noticia.id}`)"
                   size="md"
                   class="waves-light"
-                  >Leer Más <i class="fas fa-newspaper"></i></mdb-btn
-                >
+                  >Leer Más <i class="fas fa-newspaper"></i
+                ></mdb-btn>
               </mdb-col>
               <hr class="my-5" />
             </mdb-row>
@@ -202,10 +199,10 @@ export default {
       }
     },
     iconoCategoria(categoria) {
-      if (categoria === "Futbol") {
+      if (categoria === "Fútbol") {
         return "futbol";
       } else if (categoria === "Beisbol") {
-        return "golf-ball";
+        return "baseball-ball";
       } else {
         return "basketball-ball";
       }
